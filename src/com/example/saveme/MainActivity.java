@@ -1,10 +1,8 @@
 package com.example.saveme;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -40,6 +38,10 @@ public class MainActivity extends Activity {
 				// TODO Auto-generated method stub
 				
 				contactInfo = contactInfo + text.getText().toString() + "\n";
+				SharedPreferences sp = getSharedPreferences("key", 0);
+				SharedPreferences.Editor sedt = sp.edit();
+				sedt.putString("textvalue", contactInfo.toString());
+				sedt.commit();
 			}
 		});
 
